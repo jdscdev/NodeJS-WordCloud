@@ -48,7 +48,7 @@ fetch, 10, Small
 
 ## Customization
 - Modify `baseUrl` in `app.js` to fetch data from different sources.
-- Adjust `numberOfEndpoints` to increase or decrease the number of endpoints, therefore the number of words.
+- Adjust `numberOfEndpoints` in `app.js` to increase or decrease the number of endpoints, therefore the number of words.
 - Update the stopword list `STOP_WORDS` in `./modules/words.js` to refine word filtering.
 
 

@@ -6,11 +6,13 @@ module.exports = {
     try {
       return await Promise.all(endpointURLs.map(url => axios.get(url)));
     } catch (error) {
-      console.error('Error fetching endpoints:', error.message);
-      return [];
+      throw new Error(`Error fetching endpoints: ${error.message}`);
     }
   },
   getURLs: function(baseUrl, count) {
+    if (!baseUrl || !count) {
+      throw new Error('Missing baseUrl or count');
+    }
     return Array.from({ length: count }).map((_, index) => baseUrl + (index + 1));
   }
 };
