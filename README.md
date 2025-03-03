@@ -8,6 +8,7 @@ This Node.js program fetches text data from multiple URLs, processes word freque
 - Implements **concurrent requests** to optimize performance.
 - Analyzes word frequency, excluding common stopwords.
 - Classifies words into categories (`Huge`, `Big`, `Normal`, `Small`) based on frequency.
+- Words with `frequency = 1` will be excluded from listing.
 - Saves results in a `wordcloud.txt` file.
 
 ## Requirements
