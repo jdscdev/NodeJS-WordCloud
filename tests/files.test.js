@@ -11,7 +11,7 @@ describe('filesModule', () => {
         { word: 'example', count: 3, size: 'Normal' }
       ];
       const filename = 'test_output.txt';
-      const expectedOutput = 'test ,5 ,Big\nexample ,3 ,Normal';
+      const expectedOutput = 'test, 5, Big\nexample, 3, Normal';
 
       filesModule.writeDataToFile(data, filename);
 
