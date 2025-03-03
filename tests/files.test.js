@@ -51,6 +51,6 @@ describe('filesModule', () => {
       const data = [{ word: 'test', count: 5, size: 'Big' }];
       
       expect(() => filesModule.writeDataToFile(data, 'test_output.txt')).toThrow('Permission denied');
-  });
+    });
   });
 });
