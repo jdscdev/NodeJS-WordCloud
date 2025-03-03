@@ -1,9 +1,9 @@
 const fs = require('fs');
 
 module.exports = {
-  write: function(endpointsData, filename) {
-    if (endpointsData && endpointsData.length) {
-      const output = endpointsData.map(({ word, frequency, fontsize }) => `${word}, ${frequency}, ${fontsize}`).join('\n');
+  writeDataToFile: function(data, filename) {
+    if (data && data.length) {
+      const output = data.map((d) => Object.values(d).join(' ,')).join('\n');
 
       fs.writeFileSync(filename, output);
       console.log(`Word Cloud saved to ${filename}`);
