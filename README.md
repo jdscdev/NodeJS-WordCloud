@@ -51,4 +51,8 @@ fetch, 10, Small
 - Adjust `numberOfEndpoints` in `app.js` to increase or decrease the number of endpoints, therefore the number of words.
 - Update the stopword list `STOP_WORDS` in `./modules/words.js` to refine word filtering.
 
-
+## Tests
+1. Run the script:
+   ```sh
+   jest
+   ```
