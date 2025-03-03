@@ -5,7 +5,8 @@ const words = require('./modules/words');
 
 async function main() {
   const baseUrl = 'https://dummyjson.com/posts/';
-  const endpointsData = await endpoints.fetchData(baseUrl, 100);
+  const numberOfEndpoints = 100;
+  const endpointsData = await endpoints.fetchData(baseUrl, numberOfEndpoints);
   const wordsFrequencies = await words.getWordsAndFrequencies(endpointsData);
 
   files.writeDataToFile(wordsFrequencies, 'wordcloud.txt');
