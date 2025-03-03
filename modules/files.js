@@ -6,7 +6,7 @@ module.exports = {
       throw new Error('Missing data or filename');
     }
 
-    const output = data.map((d) => Object.values(d).join(' ,')).join('\n');
+    const output = data.map((d) => Object.values(d).join(', ')).join('\n');
 
     fs.writeFileSync(filename, output);
 
