@@ -67,5 +67,27 @@ describe('wordsModule', () => {
       expect(wordsFrequencies[4].fontsize).toEqual('Normal');
       expect(wordsFrequencies[5].fontsize).toEqual('Small');
     });
+
+    it('should throw error if endpointsData is empty or null', () => {
+      const errorMsg = 'Missing words frequencies or no max frequency';
+      expect(() => wordsModule.setFontsize([])).toThrow(errorMsg);
+      expect(() => wordsModule.setFontsize(null)).toThrow(errorMsg);
+    });
+
+    it('should throw error if endpointsData has incorrect properties', () => {
+      const errorMsg = 'Missing words frequencies or no max frequency';
+      expect(() => wordsModule.setFontsize([{}])).toThrow(errorMsg);
+      expect(() => wordsModule.setFontsize([{ id: 123 }])).toThrow(errorMsg);
+      expect(() => wordsModule.setFontsize([{ frequency: null }])).toThrow(errorMsg);
+      expect(() => wordsModule.setFontsize([{ frequency: {} }])).toThrow(errorMsg);
+      expect(() => wordsModule.setFontsize([{ frequency: '' }])).toThrow(errorMsg);
+      expect(() => wordsModule.setFontsize([{ frequency: '123' }])).toThrow(errorMsg);
+    });
+
+    it('should throw error if endpointsData has invalid words found in endpoints data', () => {
+      const errorMsg = 'Missing words frequencies or no max frequency';
+      expect(() => wordsModule.setFontsize([{ data: 0 }])).toThrow(errorMsg);
+      expect(() => wordsModule.setFontsize([{ data: 1 }])).toThrow(errorMsg);
+    });
   });
 });

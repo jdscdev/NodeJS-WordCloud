@@ -1,3 +1,10 @@
+class Word {
+  constructor(word, frequency, fontsize) {
+    this.word = word;
+    this.frequency = frequency;
+    this.fontsize = fontsize;
+  }
+}
 
 module.exports = {
   // Source: https://productresources.collibra.com/docs/collibra/latest/Content/Settings/ServicesConfiguration/co_stop-words.htm
@@ -24,11 +31,7 @@ module.exports = {
         
         if (wordAux && !this.STOP_WORDS.includes(wordAux)) {
           if (!uniqueWords.includes(wordAux)) {
-            resultArray.push({ 
-              word: wordAux,
-              frequency: 1,
-              fontsize: 'Small'
-            });
+            resultArray.push(new Word(wordAux, 1, '')); // adds new word to resultArray
             uniqueWords.push(wordAux);
           } else {
             resultArray.find(o => o.word === wordAux).frequency++;
@@ -53,9 +56,9 @@ module.exports = {
   setFontsize: function(wordsFrequencies) {
     const validWordsFrequencies = (wordsFrequencies && wordsFrequencies.length > 0 &&
                                    wordsFrequencies[0].hasOwnProperty('frequency') && wordsFrequencies[0].frequency &&
-                                   typeof wordsFrequencies[0].frequency === 'number' && wordsFrequencies[0].frequency > 0);
+                                   typeof wordsFrequencies[0].frequency === 'number' && wordsFrequencies[0].frequency > 1);
     if (!validWordsFrequencies) {
-      throw new Error('Missing endpoints data or no max frequency');
+      throw new Error('Missing words frequencies or no max frequency');
     }
 
     const maxFrequency = wordsFrequencies[0].frequency;
